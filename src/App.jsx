@@ -41,34 +41,33 @@ function App() {
 			setFilteredActors(femaleActors);
 		}
 	}, [genderFilter, maleActors, femaleActors]);
+
 	return (
-		<>
-			<div className="container d-flex flex-wrap gap-4 pt-2 pb-4 justify-content-center">
-				<select
-					className="form-select"
-					aria-label="All"
-					onChange={(e) => setGenderFilter(e.target.value)}
-				>
-					<option defaultValue={"all"} value="all">
-						All
-					</option>
-					<option value="male">Male</option>
-					<option value="female">Female</option>
-				</select>
-				{filteredActors.map((actor, index) => (
-					<ActorCard
-						key={index}
-						name={actor.name}
-						img={actor.image}
-						bio={actor.biography}
-						birth={actor.birth_year}
-						death={actor.death_year}
-						awards={actor.awards}
-						nationality={actor.nationality}
-					/>
-				))}
-			</div>
-		</>
+		<div className="container d-flex flex-wrap gap-4 pt-2 pb-4 justify-content-center">
+			<select
+				className="form-select"
+				aria-label="All"
+				onChange={(e) => setGenderFilter(e.target.value)}
+			>
+				<option defaultValue={"all"} value="all">
+					All
+				</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
+			{filteredActors.map((actor, index) => (
+				<ActorCard
+					key={index}
+					name={actor.name}
+					img={actor.image}
+					bio={actor.biography}
+					birth={actor.birth_year}
+					death={actor.death_year}
+					awards={actor.awards}
+					nationality={actor.nationality}
+				/>
+			))}
+		</div>
 	);
 }
 
